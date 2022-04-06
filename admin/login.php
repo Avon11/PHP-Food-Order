@@ -39,9 +39,10 @@
             <br><br>
             </form>
             <!-- Login Form Ends HEre -->
+
+            <p class="text-center">Created By - Abhinav Rana</p>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <?php include('partials/footer.php'); ?>
+
     </body>
 </html>
 

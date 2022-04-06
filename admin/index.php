@@ -1,62 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniFood - Home Page</title>
-    <link rel="stylesheet" type="text/css" href="../vendor/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/animate.css">
-    <link rel="stylesheet" href="../css/admin.css?v=<?php echo time(); ?>">
-</head>
-<body>
-    <!-- Menu Section -->
-    <?php include('partials/menu.php'); ?>
-    <!-- Menu Section -->
 
-    <!-- Main Content Section -->
-    <div class="main-content">
-        <div class="wrapper">
-        <h1>DASHBOARD</h1>
-        <div class="col-4 text-center">
-            <h1>5</h1>
-            <br />
-            Catagories
+<?php include('partials/menu.php'); ?>
 
+        <!-- Main Content Section Starts -->
+        <div class="main-content">
+            <div class="wrapper">
+                <h1>Dashboard</h1>
+                <br><br>
+                <?php 
+                    if(isset($_SESSION['login']))
+                    {
+                        echo $_SESSION['login'];
+                        unset($_SESSION['login']);
+                    }
+                ?>
+                <br><br>
+
+                <div class="col-4 text-center">
+
+                    <?php 
+                        //Sql Query 
+                        $sql = "SELECT * FROM tbl_category";
+                        //Execute Query
+                        $res = mysqli_query($conn, $sql);
+                        //Count Rows
+                        $count = mysqli_num_rows($res);
+                    ?>
+
+                    <h1><?php echo $count; ?></h1>
+                    <br />
+                    Categories
+                </div>
+
+                <div class="col-4 text-center">
+
+                    <?php 
+                        //Sql Query 
+                        $sql2 = "SELECT * FROM tbl_food";
+                        //Execute Query
+                        $res2 = mysqli_query($conn, $sql2);
+                        //Count Rows
+                        $count2 = mysqli_num_rows($res2);
+                    ?>
+
+                    <h1><?php echo $count2; ?></h1>
+                    <br />
+                    Foods
+                </div>
+
+                <div class="col-4 text-center">
+                    
+                    <?php 
+                        //Sql Query 
+                        $sql3 = "SELECT * FROM tbl_order";
+                        //Execute Query
+                        $res3 = mysqli_query($conn, $sql3);
+                        //Count Rows
+                        $count3 = mysqli_num_rows($res3);
+                    ?>
+
+                    <h1><?php echo $count3; ?></h1>
+                    <br />
+                    Total Orders
+                </div>
+
+                <div class="col-4 text-center">
+                    
+                    <?php 
+                        //Creat SQL Query to Get Total Revenue Generated
+                        //Aggregate Function in SQL
+                        $sql4 = "SELECT SUM(total) AS Total FROM tbl_order WHERE status='Delivered'";
+
+                        //Execute the Query
+                        $res4 = mysqli_query($conn, $sql4);
+
+                        //Get the VAlue
+                        $row4 = mysqli_fetch_assoc($res4);
+                        
+                        //GEt the Total REvenue
+                        $total_revenue = $row4['Total'];
+
+                    ?>
+
+                    <h1>$<?php echo $total_revenue; ?></h1>
+                    <br />
+                    Revenue Generated
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
         </div>
-        <div class="col-4 text-center">
-            <h1>5</h1>
-            <br />
-            Catagories
-
-        </div>
-        <div class="col-4 text-center">
-            <h1>5</h1>
-            <br />
-            Catagories
-
-        </div>
-        <div class="col-4 text-center">
-            <h1>5</h1>
-            <br />
-            Catagories
-
-        </div>
-        <div class="clearfix"></div>
-
-        </div>
-
-    </div>
-    <!-- Main Content End -->
-
-    <!-- Footer Section -->
-    <?php include('partials/footer.php'); ?>
-    <!-- Footer End -->
-    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</body>
-</html>
+        <!-- Main Content Setion Ends -->
+<br><br><br><br><br>
+<?php include('partials/footer.php') ?>

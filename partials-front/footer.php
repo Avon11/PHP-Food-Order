@@ -2,16 +2,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OmniFood - Home Page</title>
-    <link rel="stylesheet" type="text/css" href="../vendor/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="../vendor/css/animate.css">
-    <link rel="stylesheet" href="../css/admin.css?v=<?php echo time(); ?>">
-</head>
-
+    <link rel="stylesheet" type="text/css" href="vendor/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/admin.css?v=<?php echo time(); ?>">
+</head> 
 <footer>
-
             <div class="row">
                 <div class="col span-1-of-2">
                     <ul class="footer-nav">
@@ -40,3 +37,4 @@
                 </p>
             </div>
 </footer>
+
