@@ -40,7 +40,7 @@
             </form>
             <!-- Login Form Ends HEre -->
 
-            <p class="text-center">Created By - Abhinav Rana</p>
+            <p class="text-center">OmniFood</p>
         </div>
 
     </body>
